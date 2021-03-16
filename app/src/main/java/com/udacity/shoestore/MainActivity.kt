@@ -48,17 +48,6 @@ class MainActivity : AppCompatActivity() {
                 || super.onOptionsItemSelected(item)
     }
 
-    /*override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when (item.itemId) {
-            R.id.logout_menu_button -> onLogout()
-        }
-        return super.onOptionsItemSelected(item)
-    }*/
-
-    private fun onLogout() {
-        Toast.makeText(this, "Logout", Toast.LENGTH_SHORT)
-    }
-
     override fun onSupportNavigateUp(): Boolean {
         val navController = this.findNavController(R.id.nav_host_fragment)
         return navController.navigateUp()
