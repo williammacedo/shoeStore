@@ -6,19 +6,21 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.NavHostFragment.findNavController
 import com.udacity.shoestore.R
 import com.udacity.shoestore.databinding.FragmentShoeListBinding
 import com.udacity.shoestore.screens.shoe.adapter.ShoesAdapter
+import com.udacity.shoestore.screens.shoe.viewModel.ShoeViewModel
 
 
 class ShoeListFragment : Fragment() {
 
-    private lateinit var binding: FragmentShoeListBinding
-    private lateinit var viewModel: ShoeListViewModel
     private lateinit var adapter: ShoesAdapter
+
+    private lateinit var binding: FragmentShoeListBinding
+    private val viewModel: ShoeViewModel by activityViewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -31,10 +33,7 @@ class ShoeListFragment : Fragment() {
             container,
             false
         )
-
-        viewModel = ViewModelProvider(this).get(ShoeListViewModel::class.java)
         configListView()
-        addNewShoe()
 
 
         binding.addFab.setOnClickListener {
@@ -52,13 +51,6 @@ class ShoeListFragment : Fragment() {
     private fun configListView() {
         adapter = ShoesAdapter(context!!.applicationContext)
         binding.shoesListview.adapter = adapter
-    }
-
-    private fun addNewShoe() {
-        var args = ShoeListFragmentArgs.fromBundle(requireArguments())
-        if(args.shoeArg != null) {
-            viewModel.save(args.shoeArg!!)
-        }
     }
 
 }
