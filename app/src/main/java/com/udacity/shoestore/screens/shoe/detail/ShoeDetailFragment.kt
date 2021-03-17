@@ -41,13 +41,12 @@ class ShoeDetailFragment : Fragment() {
 
     private fun getShoe(): Shoe {
         val size = if (binding.sizeEdit.text.isNotBlank()) binding.sizeEdit.text.toString().toDouble() else 0.0
-        val shoe = Shoe(
+        return Shoe(
             binding.nameEdit.text.toString(),
             size,
             binding.companyEdit.text.toString(),
             binding.descriptionText.text.toString()
         )
-        return shoe
     }
 
     private fun navigateToList(shoe: Shoe?) {
