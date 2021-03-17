@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="item"
             type="com.udacity.shoestore.models.Shoe" />
@@ -16,12 +18,25 @@
             android:id="@+id/name_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@{item.name}" />
+            android:text="@{@string/name_format(item.name)}"
+            android:textSize="20sp"
+            tools:text="Name: " />
 
-        <TextView
-            android:id="@+id/size_text"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@{item.company}" />
+            <TextView
+                android:id="@+id/company_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@{@string/company_format(item.company)}"
+                android:textSize="16sp"
+                tools:text="Size: " />
+
+            <TextView
+                android:id="@+id/size_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@{@string/size_format_presentation(item.size)}"
+                android:textSize="16sp"
+                tools:text="Size: " />
+
     </LinearLayout>
 </layout>
