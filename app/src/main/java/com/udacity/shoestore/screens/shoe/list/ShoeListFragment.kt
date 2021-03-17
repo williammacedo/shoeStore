@@ -33,10 +33,9 @@ class ShoeListFragment : Fragment() {
         )
 
         viewModel = ViewModelProvider(this).get(ShoeListViewModel::class.java)
-        binding.shoeListViewModel
+        configListView()
+        addNewShoe()
 
-        adapter = ShoesAdapter(context!!.applicationContext)
-        binding.shoesListview.adapter = adapter
 
         binding.addFab.setOnClickListener {
             val action = ShoeListFragmentDirections.actionShoeListFragmentToShoeDetailFragment()
@@ -48,6 +47,18 @@ class ShoeListFragment : Fragment() {
         })
 
         return binding.root
+    }
+
+    private fun configListView() {
+        adapter = ShoesAdapter(context!!.applicationContext)
+        binding.shoesListview.adapter = adapter
+    }
+
+    private fun addNewShoe() {
+        var args = ShoeListFragmentArgs.fromBundle(requireArguments())
+        if(args.shoeArg != null) {
+            viewModel.save(args.shoeArg!!)
+        }
     }
 
 }

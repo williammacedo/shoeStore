@@ -28,7 +28,7 @@ class InstructionFragment : Fragment() {
         )
 
         binding.nextButton.setOnClickListener {
-            val action = InstructionFragmentDirections.actionInstructionFragmentToShoeListFragment()
+            val action = InstructionFragmentDirections.actionInstructionFragmentToShoeListFragment(null)
             NavHostFragment.findNavController(this).navigate(action)
         }
 
