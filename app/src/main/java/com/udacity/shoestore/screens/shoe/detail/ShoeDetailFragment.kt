@@ -12,6 +12,7 @@ import com.udacity.shoestore.R
 import com.udacity.shoestore.databinding.FragmentShoeDetailBinding
 import com.udacity.shoestore.models.Shoe
 import com.udacity.shoestore.screens.shoe.viewModel.ShoeViewModel
+import timber.log.Timber
 
 
 class ShoeDetailFragment : Fragment() {
@@ -30,29 +31,18 @@ class ShoeDetailFragment : Fragment() {
             container,
             false
         )
+        binding.showViewModel = viewModel
 
         binding.cancelButton.setOnClickListener {
             navigateToList()
         }
 
         binding.saveButton.setOnClickListener {
-            save()
+            viewModel.save()
             navigateToList()
         }
 
         return binding.root
-    }
-
-    private fun save() {
-        val size = if (binding.sizeEdit.text.isNotBlank()) binding.sizeEdit.text.toString().toDouble() else 0.0
-        viewModel.save(
-            Shoe(
-                binding.nameEdit.text.toString(),
-                size,
-                binding.companyEdit.text.toString(),
-                binding.descriptionEdit.text.toString()
-            )
-        )
     }
 
     private fun navigateToList() {

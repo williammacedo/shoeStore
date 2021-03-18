@@ -1,11 +1,15 @@
 package com.udacity.shoestore.screens.shoe.viewModel
 
+import androidx.databinding.ObservableParcelable
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.udacity.shoestore.models.Shoe
+import timber.log.Timber
 
 class ShoeViewModel : ViewModel() {
+
+    val observableShoe = ObservableParcelable<Shoe>()
 
     private val _shoes = MutableLiveData<MutableList<Shoe>>()
     val shoes: LiveData<MutableList<Shoe>>
@@ -17,9 +21,11 @@ class ShoeViewModel : ViewModel() {
             Shoe("Adidas Superstar", 40.0, "Adidas", "Unbelievable Adidas"),
             Shoe("Puma Viz Runner", 39.0, "Adidas", "Unbelievable Puma tennis")
         )
+        observableShoe.set(Shoe("", 0.0, "", ""))
     }
 
-    fun save(shoe: Shoe) {
-        _shoes.value?.add(shoe)
+    fun save() {
+        _shoes.value?.add(observableShoe.get()!!)
+        observableShoe.set(Shoe("", 0.0, "", ""))
     }
 }
