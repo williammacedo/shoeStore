@@ -8,7 +8,6 @@
         android:id="@+id/shoe_list_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:padding="16dp"
         tools:context=".screens.shoe.list.ShoeListFragment">
 
         <ScrollView
@@ -21,13 +20,15 @@
             app:layout_constraintBottom_toBottomOf="parent">
 
             <LinearLayout
+                android:id="@+id/linear_layout"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
-                <ListView
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+                <!--<ListView
                     android:id="@+id/shoes_listview"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    tools:listitem="@layout/item_shoe"/>
+                    tools:listitem="@layout/item_shoe"/>-->
             </LinearLayout>
 
         </ScrollView>

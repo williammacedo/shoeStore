@@ -1,7 +1,10 @@
 package com.udacity.shoestore.screens.shoe.list
 
+import android.graphics.Color
 import android.os.Bundle
 import android.view.*
+import android.widget.LinearLayout
+import android.widget.TextView
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
@@ -32,7 +35,7 @@ class ShoeListFragment : Fragment() {
             container,
             false
         )
-        configListView()
+//        configListView()
 
         binding.addFab.setOnClickListener {
             val action = ShoeListFragmentDirections.actionShoeListFragmentToShoeDetailFragment()
@@ -40,12 +43,39 @@ class ShoeListFragment : Fragment() {
         }
 
         viewModel.shoes.observe(viewLifecycleOwner, Observer {
-            adapter.update(it)
+            for (shoe in it) {
+                addTextView("Name: ${shoe.name}")
+                addTextView("Company: ${shoe.company}")
+                addTextView("Size: ${shoe.size}")
+                val linha = View(context)
+                val layoutParams = LinearLayout.LayoutParams(
+                    LinearLayout.LayoutParams.MATCH_PARENT,
+                    3
+                )
+                layoutParams.topMargin = 16
+                linha.layoutParams = layoutParams
+                linha.setBackgroundColor(Color.parseColor("#000000"))
+                binding.linearLayout.addView(linha)
+            }
+//            adapter.update(it)
         })
 
         setHasOptionsMenu(true)
 
         return binding.root
+    }
+
+    private fun addTextView(text: String) {
+        var layoutParameters = LinearLayout.LayoutParams(
+            LinearLayout.LayoutParams.MATCH_PARENT,
+            LinearLayout.LayoutParams.WRAP_CONTENT
+        )
+        layoutParameters.marginStart = 32
+        layoutParameters.topMargin = 16
+        var view = TextView(context)
+        view.layoutParams = layoutParameters
+        view.text = text
+        binding.linearLayout.addView(view)
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
@@ -58,9 +88,9 @@ class ShoeListFragment : Fragment() {
                 || super.onOptionsItemSelected(item)
     }
 
-    private fun configListView() {
+    /*private fun configListView() {
         adapter = ShoesAdapter(context!!.applicationContext)
         binding.shoesListview.adapter = adapter
-    }
+    }*/
 
 }
