@@ -15,7 +15,7 @@ class ShoeViewModel : ViewModel() {
         _shoes.value = arrayListOf(
             com.udacity.shoestore.models.Shoe("Nike Air", 38.0, "Nike", "Great tennis"),
             Shoe("Adidas Superstar", 40.0, "Adidas", "Unbelievable Adidas"),
-            Shoe("Puma Viz Runner", 39.0, "Adidas", "Unbelievable Adidas")
+            Shoe("Puma Viz Runner", 39.0, "Adidas", "Unbelievable Puma tennis")
         )
     }
 
