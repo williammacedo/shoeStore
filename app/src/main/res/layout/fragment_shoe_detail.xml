@@ -10,6 +10,9 @@
             type="com.udacity.shoestore.screens.shoe.viewModel.ShoeViewModel" />
     </data>
 
+    <!-- I'm using ConstraintLayout here to display a good layout, but I could use only LinearLayout or GridLayout, or TableLayout
+    to display 2 collumns, Label and EditText, but I prefer ConstraintLayout because it bring more power to design screens
+    and because we could use a single layer of ViewGroup.-->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/show_detail_layout"
         android:layout_width="match_parent"

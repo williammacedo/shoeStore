@@ -4,6 +4,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <!-- I'm using ConstraintLayout here to display a good layout and to display fabButton
+    up the items and bottom right of the screen, we can use RelativeLayout here but I prefer ConstraintLayout.-->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/shoe_list_layout"
         android:layout_width="match_parent"
@@ -19,6 +21,8 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintBottom_toBottomOf="parent">
 
+<!--        The project require a LinearLayout, but a good explanation is, because we add views programmatically, it
+            bring simplicity to design and code because I can just add views and add some margin or color.-->
             <LinearLayout
                 android:id="@+id/linear_layout"
                 android:layout_width="match_parent"

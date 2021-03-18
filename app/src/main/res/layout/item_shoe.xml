@@ -9,6 +9,8 @@
             type="com.udacity.shoestore.models.Shoe" />
     </data>
 
+    <!-- I'm using LinearLayout here because it's a simple layout to display three basic texts,
+    LinearLayout is simple to implement in this cases.-->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"

@@ -9,6 +9,9 @@
             type="com.udacity.shoestore.screens.login.LoginViewModel" />
     </data>
 
+<!-- I'm using ConstraintLayout here because it's better to build a beautiful layout without too many layers of ViewGroups,
+   of course, i could work with LinearLayout orientation vertical to build this screen because the idea about login is simple,
+    but i prefer ConstraintLayout because it allow many possibilities-->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/login_layout"
         android:layout_width="match_parent"

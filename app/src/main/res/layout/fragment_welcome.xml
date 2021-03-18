@@ -3,6 +3,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <!-- I'm using ConstraintLayout here because it's better to build a beautiful layout without too many layers of ViewGroups,
+   of course, i could work with LinearLayout orientation vertical to build this screen because the idea about login is simple,
+    but i prefer ConstraintLayout because it allow many possibilities.
+
+    A great point to use ConstraintLayout was onboarding screens, to give a idea to pass screen like a tutorial, like it is in onboarding screens
+    I use ConstraintLayout to keep hierarchy of components simple but still great.-->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/welcome_layout"
         android:layout_width="match_parent"
