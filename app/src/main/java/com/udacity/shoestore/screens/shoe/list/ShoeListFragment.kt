@@ -54,7 +54,7 @@ class ShoeListFragment : Fragment() {
                 )
                 layoutParams.topMargin = 16
                 linha.layoutParams = layoutParams
-                linha.setBackgroundColor(Color.parseColor("#000000"))
+                linha.setBackgroundColor(R.color.black)
                 binding.linearLayout.addView(linha)
             }
 //            adapter.update(it)
