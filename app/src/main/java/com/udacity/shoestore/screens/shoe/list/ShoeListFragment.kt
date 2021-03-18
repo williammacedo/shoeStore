@@ -1,14 +1,13 @@
 package com.udacity.shoestore.screens.shoe.list
 
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.NavHostFragment.findNavController
+import androidx.navigation.ui.NavigationUI
 import com.udacity.shoestore.R
 import com.udacity.shoestore.databinding.FragmentShoeListBinding
 import com.udacity.shoestore.screens.shoe.adapter.ShoesAdapter
@@ -35,7 +34,6 @@ class ShoeListFragment : Fragment() {
         )
         configListView()
 
-
         binding.addFab.setOnClickListener {
             val action = ShoeListFragmentDirections.actionShoeListFragmentToShoeDetailFragment()
             findNavController(this).navigate(action)
@@ -45,7 +43,19 @@ class ShoeListFragment : Fragment() {
             adapter.update(it)
         })
 
+        setHasOptionsMenu(true)
+
         return binding.root
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        super.onCreateOptionsMenu(menu, inflater)
+        inflater.inflate(R.menu.logout_menu, menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return NavigationUI.onNavDestinationSelected(item, findNavController(this))
+                || super.onOptionsItemSelected(item)
     }
 
     private fun configListView() {
