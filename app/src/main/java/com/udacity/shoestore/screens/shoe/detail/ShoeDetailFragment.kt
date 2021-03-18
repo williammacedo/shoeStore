@@ -50,7 +50,7 @@ class ShoeDetailFragment : Fragment() {
                 binding.nameEdit.text.toString(),
                 size,
                 binding.companyEdit.text.toString(),
-                binding.descriptionText.text.toString()
+                binding.descriptionEdit.text.toString()
             )
         )
     }

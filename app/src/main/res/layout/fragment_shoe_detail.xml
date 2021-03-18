@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
@@ -15,13 +14,11 @@
             android:id="@+id/name_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
+            android:layout_marginRight="8dp"
             android:text="@string/name"
-            android:textSize="16sp"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintBaseline_toBaselineOf="@+id/name_edit"
+            app:layout_constraintEnd_toStartOf="@+id/name_edit"
+            app:layout_constraintStart_toStartOf="parent" />
 
         <EditText
             android:id="@+id/name_edit"
@@ -30,20 +27,20 @@
             android:hint="@string/enter_name"
             android:inputType="textCapWords"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/name_text" />
+            app:layout_constraintStart_toEndOf="@+id/name_text"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/company_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
+            android:layout_marginRight="8dp"
             android:text="@string/company"
             android:textSize="16sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/name_edit" />
+            app:layout_constraintBaseline_toBaselineOf="@+id/company_edit"
+            app:layout_constraintEnd_toStartOf="@+id/company_edit"
+            app:layout_constraintStart_toStartOf="parent" />
 
         <EditText
             android:id="@+id/company_edit"
@@ -52,18 +49,19 @@
             android:hint="@string/enter_company"
             android:inputType="textCapWords"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/company_text" />
+            app:layout_constraintStart_toEndOf="@+id/company_text"
+            app:layout_constraintTop_toBottomOf="@id/name_edit" />
 
         <TextView
             android:id="@+id/size_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
+            android:layout_marginRight="8dp"
             android:text="@string/size"
             android:textSize="16sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintBaseline_toBaselineOf="@+id/size_edit"
+            app:layout_constraintEnd_toStartOf="@+id/size_edit"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/company_edit" />
 
@@ -74,38 +72,39 @@
             android:hint="@string/enter_size"
             android:inputType="number"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/size_text" />
+            app:layout_constraintStart_toEndOf="@+id/size_text"
+            app:layout_constraintTop_toBottomOf="@+id/company_edit" />
 
         <TextView
             android:id="@+id/description_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
+            android:layout_marginRight="8dp"
             android:text="@string/description"
             android:textSize="16sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintBaseline_toBaselineOf="@+id/description_edit"
+            app:layout_constraintEnd_toStartOf="@+id/description_edit"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/size_edit" />
 
         <EditText
-            android:id="@+id/password_edit"
+            android:id="@+id/description_edit"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:hint="@string/enter_description"
             android:inputType="textMultiLine"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/description_text" />
+            app:layout_constraintStart_toEndOf="@+id/description_text"
+            app:layout_constraintTop_toBottomOf="@+id/size_edit" />
 
         <Button
             android:id="@+id/cancel_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/cancel"
-            android:textSize="18sp"
             android:textColor="@color/colorPrimary"
+            android:textSize="18sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
 
@@ -114,8 +113,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/save"
+            android:background="@color/colorPrimary"
+            android:textColor="@android:color/white"
             android:textSize="18sp"
-            android:textColor="@color/colorPrimary"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
 
